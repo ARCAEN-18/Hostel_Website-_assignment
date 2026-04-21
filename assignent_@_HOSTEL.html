@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hostel</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5f5f5}
+
+header{
+  background:url('https://images.unsplash.com/photo-1562774053-701939374585') no-repeat center/cover;
+  height:35vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+header h1{
+  background:rgba(0,0,0,0.6);
+  padding:15px 25px;
+  border-radius:10px;
+  font-size:2.5rem;
+}
+
+nav{
+  background:#333;
+  padding:10px;
+  text-align:center;
+}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
+
+.container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  padding:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.small-card{
+  max-width:400px;
+  margin:auto;
+}
+
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+
+button{
+  padding:10px;
+  background:#333;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+iframe{
+  width:100%;
+  height:250px;
+  border-radius:10px;
+}
+
+.section-center{
+  display:flex;
+  justify-content:center;
+  padding:20px;
+}
+
+footer{
+  background:#333;
+  color:white;
+  text-align:center;
+  padding:10px;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>CAUVERY Bhavan - NIT Kurukshetra</h1>
+</header>
+<nav>
+<a href="#">Home</a>
+<a href="#">Login</a>
+<a href="#">Leave</a>
+<a href="#">Location</a>
+</nav>
+<div class="container">
+<div class="card small-card">
+<h2>Login</h2>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p id="loginMsg"></p>
+</div>
+
+<div class="card">
+<h2>Location - NIT Kurukshetra</h2>
+<iframe src="https://www.google.com/maps?q=NIT%20Kurukshetra&output=embed"></iframe>
+</div>
+</div>
+<!-- FULL WIDTH HOSTEL INFO -->
+<div style="padding:20px;">
+<div class="card">
+<h2>About CAUVERY Bhavan</h2>
+<p>CAUVERY Bhavan at NIT Kurukshetra provides a safe, comfortable, and student-friendly living environment with essential facilities for academic and personal growth.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:15px;">
+
+<div>
+<h3>Facilities Provided</h3>
+<ul>
+<li>24/7 Security and CCTV Surveillance</li>
+<li>High-speed WiFi connectivity</li>
+<li>Clean and hygienic mess facility</li>
+<li>Regular housekeeping and maintenance</li>
+<li>Electricity and water supply</li>
+<li>Common study and recreation areas</li>
+</ul>
+</div>
+
+<div>
+<h3>Hostel Fee Details</h3>
+<ul>
+<li>Single Room: ₹50,000/year</li>
+<li>Double Sharing: ₹35,000/year</li>
+<li>Triple Sharing: ₹25,000/year</li>
+</ul>
+</div>
+
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;">
+<div>
+<h3>Do's</h3>
+<ul>
+<li>Maintain cleanliness in rooms and common areas</li>
+<li>Follow hostel timings and rules strictly</li>
+<li>Respect fellow residents and staff</li>
+<li>Carry ID card at all times</li>
+<li>Inform warden before leaving hostel</li>
+</ul>
+</div>
+<div>
+<h3>Don'ts</h3>
+<ul>
+<li>Do not damage hostel property</li>
+<li>No loud noise or disturbance after quiet hours</li>
+<li>Do not allow unauthorized visitors</li>
+<li>No smoking or alcohol inside premises</li>
+<li>Aoid wasting water and electricity</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section-center">
+<div class="card small-card">
+<h2>Leave Application</h2>
+<form onsubmit="submitLeave(event)">
+<input type="text" placeholder="Name" required>
+<input type="date" required>
+<textarea placeholder="Reason" required></textarea>
+<button type="submit">Apply</button>
+</form>
+<p id="leaveMsg"></p>
+</div>
+</div>
+
+<footer>
+<p>© 2026 CAUVERY Bhavan, NIT Kurukshetra</p>
+</footer>
+
+<script>
+function submitLeave(e){
+ e.preventDefault();
+ document.getElementById('leaveMsg').innerText="Leave submitted successfully";
+}
+
+function login(){
+ const u=document.getElementById('username').value;
+ const p=document.getElementById('password').value;
+ if(u==="admin" && p==="1234"){
+  document.getElementById('loginMsg').innerText="Login successful";
+ }else{
+  document.getElementById('loginMsg').innerText="Invalid credentials";
+ }
+}
+</script>
+
+</body>
+</html>
